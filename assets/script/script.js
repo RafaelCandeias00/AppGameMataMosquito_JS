@@ -1,5 +1,6 @@
 var altura = 0
 var largura = 0
+var vidas = 1
 
 // Ajustando tamanho do paclo
 function ajustaTamanhoPalcoJogo() {
@@ -12,10 +13,19 @@ ajustaTamanhoPalcoJogo()
 
 function posicaoRandomica() {
     //remover o mosquito anterior (caso exista)
-    if(document.getElementById('mosquito')){
+    if (document.getElementById('mosquito')) {
         document.getElementById('mosquito').remove()
+
+        // remove coração de vidas
+        if (vidas > 3) {
+            alert('Game Over')
+        } else {
+            document.getElementById('v' + vidas).src = "assets/img/coracao_vazio.png"
+            vidas++
+        }
+
     }
-    
+
     // Valores aleatórios
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
@@ -33,14 +43,18 @@ function posicaoRandomica() {
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function () {
+        this.remove()
+    }
+
     // adiciona elemento criado ao body
     document.body.appendChild(mosquito)
 }
 
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3)
-    
-    switch(classe){
+
+    switch (classe) {
         case 0:
             return 'mosquito1'
 
@@ -52,10 +66,10 @@ function tamanhoAleatorio() {
     }
 }
 
-function ladoAleatorio(){
+function ladoAleatorio() {
     var classe = Math.floor(Math.random() * 2)
-    
-    switch(classe){
+
+    switch (classe) {
         case 0:
             return 'ladoA'
 
