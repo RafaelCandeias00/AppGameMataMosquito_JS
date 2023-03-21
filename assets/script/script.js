@@ -18,7 +18,7 @@ function posicaoRandomica() {
 
         // remove coração de vidas
         if (vidas > 3) {
-            alert('Game Over')
+            
         } else {
             document.getElementById('v' + vidas).src = "assets/img/coracao_vazio.png"
             vidas++
