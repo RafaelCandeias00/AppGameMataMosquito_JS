@@ -20,7 +20,7 @@ var cronometro = setInterval(function(){
     }else{
         document.getElementById('cronometro').innerHTML = tempo
     }
-}, 1000)
+}, 2000)
 
 
 function posicaoRandomica() {
