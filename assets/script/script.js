@@ -3,6 +3,18 @@ var largura = 0
 var vidas = 1
 var tempo = 10
 
+var criaMosquitoTempo = 1500
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if(nivel === 'normal'){
+    criaMosquitoTempo = 1500
+}else if(nivel === 'dificil'){
+    criaMosquitoTempo = 1000
+}else if(nivel === 'tryhard'){
+    criaMosquitoTempo = 750
+}
+
 // Ajustando tamanho do paclo
 function ajustaTamanhoPalcoJogo() {
     altura = window.innerHeight
@@ -20,7 +32,7 @@ var cronometro = setInterval(function(){
     }else{
         document.getElementById('cronometro').innerHTML = tempo
     }
-}, 2000)
+}, 1000)
 
 
 function posicaoRandomica() {
